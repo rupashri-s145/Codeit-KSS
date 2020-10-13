@@ -1,5 +1,5 @@
 Count pairs in array whose sum is divisible by 4
-Given a array if ‘n’ positive integers. Count number of pairs of integers in the array that have the sum divisible by 4.
+Given a array if â€˜nâ€™ positive integers. Count number of pairs of integers in the array that have the sum divisible by 4.
 
 Example 1
 Input: {2, 2, 1, 7, 5}
