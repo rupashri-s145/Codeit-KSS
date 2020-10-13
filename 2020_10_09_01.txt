@@ -1,0 +1,43 @@
+  
+Concept need to be revised: STACK (PUSH, POP)
+Implement Undo and Redo features of a Text Editor
+Given an array of strings Q[], consisting of queries of the following types:
+•	“WRITE X”: Write a character X into the document.
+•	“UNDO”: Erases the last change made to the document.
+•	“REDO”: Restores the most recent UNDO operation performed on the document.
+•	“READ”: Reads and prints the contents of the documents.
+
+Example
+Input: Q = {“WRITE A”, “WRITE B”, “WRITE C”, “UNDO”, “READ”, “REDO”, “READ”}
+Output: AB ABC
+Explanation:
+Perform “WRITE A” on the document. Therefore, the document contains only “A”.
+Perform “WRITE B” on the document. Therefore, the document contains “AB”.
+Perform “WRITE C” on the document. Therefore, the document contains “ABC”.
+Perform “UNDO” on the document. Therefore, the document contains “AB”.
+Print the contents of the document, i.e. “AB”
+Perform “REDO” on the document. Therefore, the document contains “ABC”.
+Print the contents of the document, i.e. “ABC”
+Input: Q = {“WRITE x”, “WRITE y”, “UNDO”, “WRITE z”, “READ”, “REDO”, “READ”}
+Output:xz xzy
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Code:
+input_list=input().split()
+document=[]
+undoed=[]
+while(input_list):
+    if input_list[0][0]=='W':
+        document.append(input_list[1])
+        input_list.pop(0)
+    elif input_list[0][0]=='U':
+        undoed_element=document.pop()
+        undoed.append(undoed_element)
+    elif input_list[0][0]=='R':
+        if input_list[0][2]=='A':
+            print(''.join(document),end=" ")
+        elif input_list[0][2]=='D':
+            redo_element=undoed.pop()
+            document.append(redo_element)
+    input_list.pop(0)
